@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "IDとパスワードを入力してください"
+AuthUserFile /home/ec2-user/environment/php_test/mainte/.htpasswd
+require valid-user
