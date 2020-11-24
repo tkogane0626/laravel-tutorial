@@ -4,7 +4,7 @@ function validation($request) {
   
   $errors = [];
   
-  if(empty($request['your_name']) || 20 < mb_strlen($request['your_name'])) {
+  if(empty($request['your_name'])) {
     $errors[] = '「氏名」は必須です。20文字以内で入力してください。';
   }
   
@@ -13,7 +13,7 @@ function validation($request) {
   }
   
   if(!empty($request['url'])) {
-    if(!filter_var($request['url'], FILTER_VALIDATE_EMAIL)) {
+    if(!filter_var($request['url'], FILTER_VALIDATE_URL)) {
       $errors[] = '「ホームページ」は正しい形式で入力してください。';
     }
   }
@@ -26,7 +26,7 @@ function validation($request) {
     $errors[] = '「年齢」は必須です。';
   }
   
-  if(empty($request['contact']) || 200 < mb_strlen($request['contact'])) {
+  if(empty($request['contact'])) {
     $errors[] = '「お問い合わせ内容」は必須です。200文字以内で入力してください。';
   }
 

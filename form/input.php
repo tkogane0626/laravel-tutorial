@@ -84,18 +84,16 @@ if(!empty($_POST['btn_submit'])) {
 <?php endif; ?>
 
 <?php if($pageFlg === 2) : ?>
+
+<?php require '../mainte/insert.php';
+insertContact($_POST);
+?>
+
 送信が完了しました
 <?php unset($_SESSION['csrfToken']); ?>
 <?php endif; ?>
 
 <?php if($pageFlg === 0) : ?>
-<?php
-if(!isset($_SESSION)){
-  $csrfToken = bin2hex(random_bytes(32));
-  $_SESSION['csrfToken'] = $csrfToken;
-}
-$token = $_SESSION['csrfToken'];
-?>
 <?php if(!empty($errors) && !empty($_POST['btn_confirm'])) : ?>
 <?php echo '<ul>'; ?>
 <?php
